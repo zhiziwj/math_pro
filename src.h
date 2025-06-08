@@ -59,4 +59,24 @@ double sqrt(double x){
 	}
 	return ans;
 }
+struct complex{
+	double real;
+	double imag;
+};
+complex add(complex a,complex b){
+	return complex{a.real+b.real,a.imag+b.imag};
+}
+complex sub(complex a,complex b){
+	return complex{a.real-b.real,a.imag-b.imag};
+}
+complex mul(complex a,complex b){
+	return complex{a.real*b.real-a.imag*b.imag,a.real*b.imag+a.imag*b.real};
+}
+complex divide(complex a,complex b){
+	double d=b.real*b.real+b.imag*b.imag;
+	if(d==0){//error
+		return complex{0,0};
+	}
+	return complex{(a.real*b.real+a.imag*b.imag)/d,(a.imag*b.real-a.real*b.imag)/d};
+}
 #endif
